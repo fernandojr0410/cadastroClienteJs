@@ -19,22 +19,20 @@
             <div class="cadastro-card" id="dadosCliente">
                 <div class="informacoes-card">
                     <span>Nome Completo</span>
-                    <input type="text" id="nomeCliente" placeholder="Digite seu nome completo..." required>
+                    <input type="text" id="nomeCliente" placeholder="Digite seu nome completo..." required minlength="3"
+                        onblur="validarTamanhoNome()">
                 </div>
 
                 <div class="informacoes-card">
                     <span>CPF</span>
-                    <input type="number" id="cpfCliente" placeholder="Digite seu cpf..." required>
+                    <input type="number" id="cpfCliente" placeholder="Digite seu cpf..." required maxlength="11"
+                        onblur="validarTamanhoCPF()">
                 </div>
 
                 <div class="informacoes-card">
-                    <span>Endereço</span>
-                    <input type="text" id="enderecoCliente" placeholder="Digite seu endereço..." required>
-                </div>
-
-                <div class="informacoes-card">
-                    <span>Telefone</span>
-                    <input type="number" id="telefoneCliente" placeholder="Digite seu telefone..." required>
+                    <span>Celular</span>
+                    <input type="number" id="celularCliente" placeholder="Digite seu DDD e o número do celular"
+                        maxlength="9" onblur="validarTamanhoCelular()" required>
                 </div>
 
                 <div class="informacoes-card">
@@ -42,7 +40,7 @@
                     <input type="text" id="emailCliente" placeholder="Digite seu e-mail..." required>
                 </div>
                 <div class="informacoes-card">
-                    <button type="reset" id="limparDados" onclick="cadastrarCliente()">
+                    <button type="button" id="limparDados" onclick="cadastrarCliente()">
                         <span>Cadastrar Cliente</span>
                     </button>
                 </div>
