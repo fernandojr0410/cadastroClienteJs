@@ -5,6 +5,8 @@
     box-sizing: border-box;
 }
 
+
+
 .fundo-pagina-container {
     display: flex;
     justify-content: center;
@@ -77,4 +79,26 @@
 .informacoes-card>button:hover {
     opacity: 0.8;
     color: #fff;
+}
+
+/* Mensagem de Erros */
+
+
+.mensagem-erro,
+#mensagemErroCPF,
+#mensagemErroCelular {
+    color: red;
+    font-weight: 700;
+}
+
+
+
+.mensagem-correto,
+#mensagemCorretoCPF,
+#mensagemCorretoCelular {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: #42a72e;
+    font-weight: 700;
 }

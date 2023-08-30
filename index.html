@@ -19,20 +19,26 @@
             <div class="cadastro-card" id="dadosCliente">
                 <div class="informacoes-card">
                     <span>Nome Completo</span>
-                    <input type="text" id="nomeCliente" placeholder="Digite seu nome completo..." required minlength="3"
-                        onblur="validarTamanhoNome()">
+                    <input type="text" id="nomeCliente" placeholder="Digite seu nome completo..." required
+                       onblur="validarNomeCompleto()" minlength="3">
+                       <span class="mensagem-erro" id="mensagemErroNome"></span>
+                       <span class="mensagem-correto" id="mensagemCorretoNome"></span>
                 </div>
 
                 <div class="informacoes-card">
                     <span>CPF</span>
                     <input type="number" id="cpfCliente" placeholder="Digite seu cpf..." required maxlength="11"
                         onblur="validarTamanhoCPF()">
+                    <span class="mensagem-erro" id="mensagemErroCPF"></span>
+                    <span class="mensagem-correto" id="mensagemCorretoCPF"></span>
                 </div>
 
                 <div class="informacoes-card">
                     <span>Celular</span>
                     <input type="number" id="celularCliente" placeholder="Digite seu DDD e o número do celular"
                         maxlength="9" onblur="validarTamanhoCelular()" required>
+                    <span class="mensagem-erro" id="mensagemErroCelular"></span>
+                    <span class="mensagem-erro" id="mensagemCorretoCelular"></span>
                 </div>
 
                 <div class="informacoes-card">

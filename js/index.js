@@ -20,6 +20,12 @@ ${email}`);
   }
 }
 
+function todosDigitosIguaisNome(nomeCompleto) {
+  const nomeCliente = nomeCompleto[0];
+  return nomeCompleto.split("").every((digito) => {
+    digito === nomeCliente;
+  });
+}
 function todosDigitosIguaisCPF(cpf) {
   const cpfCliente = cpf[0];
   return cpf.split("").every((digito) => digito === cpfCliente);
@@ -30,32 +36,57 @@ function todosDigitosIguaisCelular(celular) {
   return celular.split("").every((digito) => digito === celularCliente);
 }
 
+function validarNomeCompleto() {
+  let nomeCompleto = document.getElementById("nomeCliente").value;
+  let erroNome = document.getElementById("mensagemErroNome");
+  let nomeCorreto = document.getElementById("mensagemCorretoNome");
+
+  if (nomeCompleto < 3) {
+    erroNome.textContent =
+      "Nome Inválido, nome precisa ter no minimo 3 caracteres.";
+    erroNome.textContent = "";
+  } else if (todosDigitosIguaisNome(nomeCompleto)) {
+    erroNome.textContent =
+      "Nome Inválido, nome não pode ter todos os caracteres iguais";
+    erroNome.textContent = "";
+  } else {
+    nomeCorreto.textContent = "Nome Válido";
+  }
+}
+
 function validarTamanhoCPF() {
   let cpf = document.getElementById("cpfCliente").value;
+  let erroCPF = document.getElementById("mensagemErroCPF");
+  let cpfCorreto = document.getElementById("mensagemCorretoCPF");
 
   if (cpf.length !== 11) {
-    alert("CPF Inválido, CPF precisa ter exatamente 11 caracteres.");
-    document.getElementById("cpfCliente").value = "";
+    erroCPF.textContent =
+      "CPF Inválido, CPF precisa ter exatamente 11 digitos.";
+    cpfCorreto.textContent = "";
   } else if (todosDigitosIguaisCPF(cpf)) {
-    alert("CPF Inválido, CPF não pode ter todos os dígitos iguais.");
-    document.getElementById("cpfCliente").value = "";
+    erroCPF.textContent =
+      "CPF Inválido, CPF não pode ter todos os dígitos iguais.";
+    cpfCorreto.textContent = "";
   } else {
-    alert("CPF Válido");
+    erroCPF.textContent = "";
+    cpfCorreto.textContent = "CPF Válido";
   }
 }
 
 function validarTamanhoCelular() {
   let celular = document.getElementById("celularCliente").value;
+  let erroCelular = document.getElementById("mensagemErroCelular");
+  let celularCorreto = document.getElementById("mensagemCorretoCelular");
 
   if (celular.length !== 11 && celular.length !== 10) {
-    alert(
-      "Celular Inválido, celular precisa ter exatamente 10 ou 11 caracteres."
-    );
-    document.getElementById("celularCliente").value = "";
+    celular.textContent =
+      "Celular Inválido, celular precisa ter exatamente 10 ou 11 caracteres.";
+    erroCelular.textContent = "";
   } else if (todosDigitosIguaisCelular(celular)) {
-    alert("Celular Inválido, celular não pode ter todos os dígitos iguais.");
-    document.getElementById("celularCliente").value = "";
+    erroCelular.textContent =
+      "Celular Inválido, Celular não pode ter todos os dígitos iguais.";
+    erroCelular.textContent = "";
   } else {
-    alert("Celular Válido");
+    celularCorreto.textContent = "Celular Válido";
   }
 }
