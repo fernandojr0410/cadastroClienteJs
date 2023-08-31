@@ -5,8 +5,6 @@
     box-sizing: border-box;
 }
 
-
-
 .fundo-pagina-container {
     display: flex;
     justify-content: center;
@@ -82,20 +80,28 @@
 }
 
 /* Mensagem de Erros */
-
-
 .mensagem-erro,
 #mensagemErroCPF,
-#mensagemErroCelular {
+#mensagemErroCelular,
+#mensagemErroNome,
+#mensagemErroEmail {
     color: red;
     font-weight: 700;
 }
 
-
+.mensagem-erro,
+#mensagemErroNome,
+#mensagemErroEmail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .mensagem-correto,
 #mensagemCorretoCPF,
-#mensagemCorretoCelular {
+#mensagemCorretoCelular,
+#mensagemCorretoNome,
+#mensagemCorretoEmail {
     display: flex;
     justify-content: center;
     align-content: center;

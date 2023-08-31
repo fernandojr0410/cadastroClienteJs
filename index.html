@@ -20,9 +20,9 @@
                 <div class="informacoes-card">
                     <span>Nome Completo</span>
                     <input type="text" id="nomeCliente" placeholder="Digite seu nome completo..." required
-                       onblur="validarNomeCompleto()" minlength="3">
-                       <span class="mensagem-erro" id="mensagemErroNome"></span>
-                       <span class="mensagem-correto" id="mensagemCorretoNome"></span>
+                        onblur="validarNomeCompleto()" minlength="3">
+                    <span class="mensagem-erro" id="mensagemErroNome"></span>
+                    <span class="mensagem-correto" id="mensagemCorretoNome"></span>
                 </div>
 
                 <div class="informacoes-card">
@@ -36,14 +36,17 @@
                 <div class="informacoes-card">
                     <span>Celular</span>
                     <input type="number" id="celularCliente" placeholder="Digite seu DDD e o número do celular"
-                        maxlength="9" onblur="validarTamanhoCelular()" required>
+                        maxlength="11" onblur="validarTamanhoCelular()" required>
                     <span class="mensagem-erro" id="mensagemErroCelular"></span>
-                    <span class="mensagem-erro" id="mensagemCorretoCelular"></span>
+                    <span class="mensagem-correto" id="mensagemCorretoCelular"></span>
                 </div>
 
                 <div class="informacoes-card">
                     <span>E-mail</span>
-                    <input type="text" id="emailCliente" placeholder="Digite seu e-mail..." required>
+                    <input type="text" id="emailCliente" placeholder="Digite seu e-mail..." onblur="validarEmail()"
+                        required>
+                    <span class="mensagem-erro" id="mensagemErroEmail"></span>
+                    <span class="mensagem-correto" id="mensagemCorretoEmail"></span>
                 </div>
                 <div class="informacoes-card">
                     <button type="button" id="limparDados" onclick="cadastrarCliente()">
