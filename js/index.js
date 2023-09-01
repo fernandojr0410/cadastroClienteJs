@@ -5,7 +5,16 @@ function cadastrarCliente() {
   let email = document.getElementById("emailCliente").value;
 
   if (nomeCompleto === "" || cpf === "" || celular === "" || email === "") {
-    alert("Por favor, preencha todos os campos.");
+    document.getElementById("mensagemNuloNome").textContent =
+      "Por favor, preencha esse campo";
+
+    
+    document.getElementById("mensagemNuloCPF").textContent =
+      "Por favor, preencha esse campo";
+    document.getElementById("mensagemNuloCelular").textContent =
+      "Por favor, preencha esse campo";
+    document.getElementById("mensagemNuloEmail").textContent =
+      "Por favor, preencha esse campo";
   } else {
     alert(`Você foi cadastrado com Sucesso!
 
@@ -25,6 +34,8 @@ ${email}`);
     document.getElementById("mensagemCorretoCPF").textContent = "";
     document.getElementById("mensagemErroCelular").textContent = "";
     document.getElementById("mensagemCorretoCelular").textContent = "";
+    document.getElementById("mensagemErroEmail").textContent = "";
+    document.getElementById("mensagemCorretoEmail").textContent = "";
   }
 }
 
@@ -39,38 +50,41 @@ function todosDigitosIguaisCelular(celular) {
 }
 
 function validarNomeCompleto() {
-  let nomeCliente = document.getElementById("nomeCliente");
-  let mensagemErroNome = document.getElementById("mensagemErroNome");
-  let mensagemCorretoNome = document.getElementById("mensagemCorretoNome");
-  let nome = nomeCliente.value;
+  let nomeCompleto = document.getElementById("nomeCliente");
+  let nomeErro = document.getElementById("mensagemErroNome");
+  let nomeCorreto = document.getElementById("mensagemCorretoNome");
+  let nome = nomeCompleto.value;
 
   if (/[\d]/.test(nome)) {
-    mensagemErroNome.textContent = "Não é permitido ter números neste campo.";
-    mensagemCorretoNome.textContent = "";
-  } else if (nome.length < 3) {
-    mensagemErroNome.textContent = "Nome muito curto.";
-    mensagemCorretoNome.textContent = "";
+    nomeErro.textContent = "Não é permitido ter números neste campo.";
+    nomeCorreto.textContent = "";
+  } else if (nome === "") {
+    nomeErro.textContent = "Nome Inválido.";
+    nomeCorreto.textContent = "";
+  } else if (nome.length <= 3) {
+    nomeErro.textContent = "Nome muito curto.";
+    nomeCorreto.textContent = "";
   } else {
-    mensagemErroNome.textContent = "";
-    mensagemCorretoNome.textContent = "Nome Válido";
+    nomeErro.textContent = "";
+    nomeCorreto.textContent = "Nome Válido";
   }
 }
 
 function validarTamanhoCPF() {
   let cpf = document.getElementById("cpfCliente").value;
-  let erroCPF = document.getElementById("mensagemErroCPF");
+  let erroCpf = document.getElementById("mensagemErroCPF");
   let cpfCorreto = document.getElementById("mensagemCorretoCPF");
 
   if (cpf.length !== 11) {
-    erroCPF.textContent =
+    erroCpf.textContent =
       "CPF Inválido, CPF precisa ter exatamente 11 digitos.";
     cpfCorreto.textContent = "";
   } else if (todosDigitosIguaisCPF(cpf)) {
-    erroCPF.textContent =
+    erroCpf.textContent =
       "CPF Inválido, CPF não pode ter todos os dígitos iguais.";
     cpfCorreto.textContent = "";
   } else {
-    erroCPF.textContent = "";
+    erroCpf.textContent = "";
     cpfCorreto.textContent = "CPF Válido";
   }
 }
@@ -98,14 +112,15 @@ function validarEmail() {
   let email = document.getElementById("emailCliente").value;
   let erroEmail = document.getElementById("mensagemErroEmail");
   let emailCorreto = document.getElementById("mensagemCorretoEmail");
+  let teste = email.value;
 
   let validarEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!validarEmail.test(email)) {
-    erroEmail.textContent = "Email Inválido";
+    erroEmail.textContent = "Email Inválido.";
     emailCorreto.textContent = "";
   } else {
     erroEmail.textContent = "";
-    emailCorreto.textContent = "E-mail Válido";
+    emailCorreto.textContent = "E-mail Válido.";
   }
 }

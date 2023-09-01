@@ -1,62 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="imagex/png" href="./img/logo.png" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <title>Cadastro de Cliente</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="fundo-pagina-container">
-        <div class="fundo-card-container">
-            <div class="titulo-card">
-                <img src="./img/img.png" alt="">
-                <h3>Cadastro Cliente</h3>
-            </div>
-            <div class="cadastro-card" id="dadosCliente">
-                <div class="informacoes-card">
-                    <span>Nome Completo</span>
-                    <input type="text" id="nomeCliente" placeholder="Digite seu nome completo..." required
-                        onblur="validarNomeCompleto()" minlength="3">
-                    <span class="mensagem-erro" id="mensagemErroNome"></span>
-                    <span class="mensagem-correto" id="mensagemCorretoNome"></span>
-                </div>
-
-                <div class="informacoes-card">
-                    <span>CPF</span>
-                    <input type="number" id="cpfCliente" placeholder="Digite seu cpf..." required maxlength="11"
-                        onblur="validarTamanhoCPF()">
-                    <span class="mensagem-erro" id="mensagemErroCPF"></span>
-                    <span class="mensagem-correto" id="mensagemCorretoCPF"></span>
-                </div>
-
-                <div class="informacoes-card">
-                    <span>Celular</span>
-                    <input type="number" id="celularCliente" placeholder="Digite seu DDD e o número do celular"
-                        maxlength="11" onblur="validarTamanhoCelular()" required>
-                    <span class="mensagem-erro" id="mensagemErroCelular"></span>
-                    <span class="mensagem-correto" id="mensagemCorretoCelular"></span>
-                </div>
-
-                <div class="informacoes-card">
-                    <span>E-mail</span>
-                    <input type="text" id="emailCliente" placeholder="Digite seu e-mail..." onblur="validarEmail()"
-                        required>
-                    <span class="mensagem-erro" id="mensagemErroEmail"></span>
-                    <span class="mensagem-correto" id="mensagemCorretoEmail"></span>
-                </div>
-                <div class="informacoes-card">
-                    <button type="button" id="limparDados" onclick="cadastrarCliente()">
-                        <span>Cadastrar Cliente</span>
-                    </button>
-                </div>
-            </div>
+      <div class="fundo-card-container">
+        <div class="titulo-card">
+          <img src="./img/img.png" alt="" />
+          <h3>Cadastro Cliente</h3>
         </div>
+        <div class="cadastro-card" id="dadosCliente">
+          <div class="informacoes-card">
+            <span>Nome Completo</span>
+            <input
+              type="text"
+              id="nomeCliente"
+              placeholder="Digite seu nome completo..."
+              required
+              onblur="validarNomeCompleto()"
+              minlength="3"
+            />
+            <span class="mensagem-erro" id="mensagemErroNome"></span>
+            <span class="mensagem-correto" id="mensagemCorretoNome"></span>
+            <span class="mensagem-nulo" id="mensagemNuloNome"></span>
+          </div>
+
+          <div class="informacoes-card">
+            <span>CPF</span>
+            <input
+              type="number"
+              id="cpfCliente"
+              placeholder="Digite seu cpf..."
+              required
+              maxlength="11"
+              onblur="validarTamanhoCPF()"
+            />
+            <span class="mensagem-erro" id="mensagemErroCPF"></span>
+            <span class="mensagem-correto" id="mensagemCorretoCPF"></span>
+            <span class="mensagem-nulo" id="mensagemNuloCPF"></span>
+          </div>
+
+          <div class="informacoes-card">
+            <span>Celular</span>
+            <input
+              type="number"
+              id="celularCliente"
+              placeholder="Digite seu DDD e o número do celular"
+              maxlength="11"
+              onblur="validarTamanhoCelular()"
+              required
+            />
+            <span class="mensagem-erro" id="mensagemErroCelular"></span>
+            <span class="mensagem-correto" id="mensagemCorretoCelular"></span>
+            <span class="mensagem-nulo" id="mensagemNuloCelular"></span>
+          </div>
+
+          <div class="informacoes-card">
+            <span>E-mail</span>
+            <input
+              type="text"
+              id="emailCliente"
+              placeholder="Digite seu e-mail..."
+              onblur="validarEmail()"
+              required
+            />
+            <span class="mensagem-erro" id="mensagemErroEmail"></span>
+            <span class="mensagem-correto" id="mensagemCorretoEmail"></span>
+            <span class="mensagem-nulo" id="mensagemNuloEmail"></span>
+          </div>
+          <div class="informacoes-card">
+            <button type="button" id="limparDados" onclick="cadastrarCliente()">
+              <span>Cadastrar Cliente</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./js/index.js"></script>
-</body>
-
+  </body>
 </html>
