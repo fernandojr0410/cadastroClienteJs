@@ -3,18 +3,27 @@ function cadastrarCliente() {
   let cpf = document.getElementById("cpfCliente").value;
   let celular = document.getElementById("celularCliente").value;
   let email = document.getElementById("emailCliente").value;
+  let nomeErro = document.getElementById("mensagemErroNome").value;
+  let cpfErro = document.getElementById("mensagemErroCPF").value;
+  let celularErro = document.getElementById("mensagemErroCelular").value;
+  let emailErro = document.getElementById("mensagemErroEmail").value;
 
   if (nomeCompleto === "" || cpf === "" || celular === "" || email === "") {
-    document.getElementById("mensagemNuloNome").textContent =
+    nomeErro = document.getElementById("mensagemErroNome").textContent =
       "Por favor, preencha esse campo";
+    document.getElementById("mensagemNuloNome").textContent = "";
 
-    
-    document.getElementById("mensagemNuloCPF").textContent =
+    cpfErro = document.getElementById("mensagemErroCPF").textContent =
       "Por favor, preencha esse campo";
-    document.getElementById("mensagemNuloCelular").textContent =
+    document.getElementById("mensagemNuloCPF").textContent = "";
+
+    celularErro = document.getElementById("mensagemErroCelular").textContent =
       "Por favor, preencha esse campo";
-    document.getElementById("mensagemNuloEmail").textContent =
+    document.getElementById("mensagemNuloCelular").textContent = "";
+
+    emailErro = document.getElementById("mensagemErroEmail").textContent =
       "Por favor, preencha esse campo";
+    document.getElementById("mensagemNuloEmail").textContent = "";
   } else {
     alert(`Você foi cadastrado com Sucesso!
 
@@ -72,55 +81,55 @@ function validarNomeCompleto() {
 
 function validarTamanhoCPF() {
   let cpf = document.getElementById("cpfCliente").value;
-  let erroCpf = document.getElementById("mensagemErroCPF");
+  let cpfErro = document.getElementById("mensagemErroCPF");
   let cpfCorreto = document.getElementById("mensagemCorretoCPF");
 
   if (cpf.length !== 11) {
-    erroCpf.textContent =
+    cpfErro.textContent =
       "CPF Inválido, CPF precisa ter exatamente 11 digitos.";
     cpfCorreto.textContent = "";
   } else if (todosDigitosIguaisCPF(cpf)) {
-    erroCpf.textContent =
+    cpfErro.textContent =
       "CPF Inválido, CPF não pode ter todos os dígitos iguais.";
     cpfCorreto.textContent = "";
   } else {
-    erroCpf.textContent = "";
+    cpfErro.textContent = "";
     cpfCorreto.textContent = "CPF Válido";
   }
 }
 
 function validarTamanhoCelular() {
   let celular = document.getElementById("celularCliente").value;
-  let erroCelular = document.getElementById("mensagemErroCelular");
+  let celularErro = document.getElementById("mensagemErroCelular");
   let celularCorreto = document.getElementById("mensagemCorretoCelular");
 
   if (celular.length !== 11 && celular.length !== 10) {
-    erroCelular.textContent =
+    celularErro.textContent =
       "Celular Inválido, celular precisa ter exatamente 10 ou 11 caracteres.";
     celularCorreto.textContent = "";
   } else if (todosDigitosIguaisCelular(celular)) {
-    erroCelular.textContent =
+    celularErro.textContent =
       "Celular Inválido, Celular não pode ter todos os dígitos iguais.";
     celularCorreto.textContent = "";
   } else {
-    erroCelular.textContent = "";
+    celularErro.textContent = "";
     celularCorreto.textContent = "Celular Válido";
   }
 }
 
 function validarEmail() {
   let email = document.getElementById("emailCliente").value;
-  let erroEmail = document.getElementById("mensagemErroEmail");
+  let emailErro = document.getElementById("mensagemErroEmail");
   let emailCorreto = document.getElementById("mensagemCorretoEmail");
   let teste = email.value;
 
   let validarEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!validarEmail.test(email)) {
-    erroEmail.textContent = "Email Inválido.";
+    emailErro.textContent = "Email Inválido.";
     emailCorreto.textContent = "";
   } else {
-    erroEmail.textContent = "";
+    emailErro.textContent = "";
     emailCorreto.textContent = "E-mail Válido.";
   }
 }
